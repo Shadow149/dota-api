@@ -1,0 +1,95 @@
+<root>
+    <Section>
+        <Section id="teamSection">
+            <Title id="team" text="{self.team}"/>
+            <Block id="win_background"/>
+            <Label id="win" text="{self.win}"/>
+        </Section>
+
+        <Title id="playerTitle" text="{self.playerName}"/>
+
+
+        <!-- <RepeatSection>
+            <Title text="yest"/>
+        </RepeatSection> -->
+            
+        <Section id="inline_section">
+            <Title text="{self.hero}"/>
+            <Title id="KDA" text="{self.kda}"/>
+        </Section>
+        
+        <Section id="hero_img">
+            <Image src="{self.hero_url}"/>
+            <Image id="heatmap" src="{self.heatmap_img}"/>
+        </Section>
+        
+        <Section id="items">
+            <Section>
+                <Image src="{self.item_0}"/>
+                <!-- <Label id="item_time" text="31"/> -->
+            </Section>
+            <Section>
+                <Image src="{self.item_1}"/>
+                <!-- <Label id="item_time" text="3"/> -->
+            </Section>
+            <Section>
+                <Image src="{self.item_2}"/>
+                <!-- <Label id="item_time" text="25"/> -->
+            </Section>
+            <Section>
+                <Image src="{self.item_3}"/>
+                <!-- <Label id="item_time" text="5"/> -->
+            </Section>
+            <Section>
+                <Image src="{self.item_4}"/>
+                <!-- <Label id="item_time" text="10"/> -->
+            </Section>
+            <Section>
+                <Image src="{self.item_5}"/>
+                <!-- <Label id="item_time" text="13"/> -->
+            </Section>
+        </Section>
+
+        <Section id="info">
+            <Section id="inline_section">
+                <Section id="data">
+                    <Section>
+                        <Label id="data_title" text="Networth:"/>
+                        <Label id="data_title" text="CS:"/>
+                        <Label id="data_title" text="GPM:"/>
+                        <Label id="data_title" text="Damage Done:"/>
+                        <Label id="data_title" text="Damage Taken:"/>
+                        <Label id="data_title" text="Healing:"/>
+                    </Section>
+                    <Section>
+                        <Label text="{self.networth}"/>
+                        <Label text="{self.cs}"/>
+                        <Label text="{self.gpm}"/>
+                        <Label text="{self.dmg_done}"/>
+                        <Label id="endinfo" text="{self.dmg_tkn}"/>
+                        <Label text="{self.heal}"/>
+                    </Section>
+                </Section>
+                <Section id="dmg_breakdown">
+                    <Label text="Damage Taken"/>
+                    <Section id="bars">
+                        <Label id="phy_title" text="Physical"/>
+                        <Block id="phy_bar"/>
+                        <Label id="phy_dmg" text="{self.physical}"/>
+                        
+                        <Label id="mag_title" text="Magical"/>
+                        <Block id="mag_bar"/>
+                        <Label id="mag_dmg" text="{self.magical}"/>
+                        
+                        <Label id="pure_title" text="Pure"/>
+                        <Block id="pure_bar"/>
+                        <Label id="pure_dmg" text="{self.pure}"/>
+                    </Section>
+                </Section>
+                
+            </Section>
+        </Section>
+
+
+    </Section>
+</root>

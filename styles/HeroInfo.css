@@ -1,0 +1,56 @@
+
+#inline_section{
+    display: inline;
+}
+
+#team{
+    font-size: 60px;
+    color: "{self.team_colour}";
+}
+
+#win{
+    color: "{self.win_colour}";
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+
+#playerTitle{
+    color: rgb(94,186,237)
+}
+
+#items{
+    margin-top: 5px;
+    margin-left: 50px;
+    display: vertical;
+}
+
+#KDA{
+    margin-left: 100px;
+}
+
+#info {
+    margin-top: 10px;
+}
+
+#heatmap {
+    margin-top: 30px;
+    width: 256px;
+    height: 256px;
+}
+
+#creeps {
+    display: inline;
+    margin-top: 10px;
+}
+
+#lane_creeps {
+    width: 256px;
+    height: 256px;
+}
+#creep_info{
+    margin-left: 50px;
+}
+#creep_cs{
+    margin-left: 20px;
+}

@@ -1,0 +1,62 @@
+<root>
+    <Section>
+        <Section id="inline_section">
+            <Title id="team" text="{self.team}"/>
+            <Title id="win" text="{self.win}"/>
+        </Section>
+        <Title id="playerTitle" text="{self.playerName}"/>
+        <Section id="inline_section">
+            <Title text="{self.hero}"/>
+            <Title id="KDA" text="{self.kda}"/>
+        </Section>
+        <Section>
+            <Section id="inline_section">
+
+                <Section>
+                    <Image src="{self.hero_url}"/>
+                    <Section id="info">
+                        <Label text="{self.lane} Lane"/>
+                        <Label text="Networth: {self.networth}"/>
+                        <Label text="CS: {self.cs}"/>
+                        <Label text="GPM: {self.gpm}"/>
+                        <Label text="Damage Done: {self.dmg_done}"/>
+                        <Label text="Damge Taken: {self.dmg_tkn}"/>
+                        <Label text="Healing: {self.heal}"/>
+                    </Section>
+                </Section>
+
+                <Section>
+                    <Section id="items">
+                        <Section id="inline_section">
+                            <Image src="{self.item_0}"/>
+                            <Image src="{self.item_1}"/>
+                            <Image src="{self.item_2}"/>
+                        </Section>
+                        <Section id="inline_section">
+                            <Image src="{self.item_3}"/>
+                            <Image src="{self.item_4}"/>
+                            <Image src="{self.item_5}"/>
+                        </Section>
+                        <Image id="heatmap" src="{self.heatmap_img}"/>
+                    </Section>
+                </Section>
+
+                <RepeatSection>
+                    <Title text="asdas"/>                
+                </RepeatSection>
+                
+            </Section>
+        </Section>
+        
+        <Section id="creeps">
+            <Image src="images/lane_creeps.png" id="lane_creeps"/>
+            <Section id="creep_info">
+                <Title text="Lane Creeps"/>
+                <Label id="creep_cs" text="{self.lane_cs}"/>
+                <Title text="Neutral Creeps"/>
+                <Label id="creep_cs" text="{self.neutral_cs}"/>
+            </Section>
+        </Section>
+
+    </Section>
+</root>

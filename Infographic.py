@@ -187,7 +187,7 @@ class Infographic:
                 ability_img = self._resize_image(ability_img, 0,45)
                 img.paste(ability_img,(ab_x,ab_y+10),ability_img)
 
-            text = f"{damage_inflictor_taken[inflictor]}"
+            text = f"{damage_inflictor_taken[inflictor]} {round(damage_inflictor_taken[inflictor]/self.player.get_total_damage_taken() * 100, 2)}%"
             draw.text((ab_x + 55,ab_y+7), text, font=self.big_text_font, fill=(255,255,255,128))
 
         cs = f"Total stuns: {round(self.player.get_total_stuns(),2)}s"
@@ -219,17 +219,18 @@ class Infographic:
        # minimap.show()
         return minimap
 
-    def get_bound_info(self, players):
+    def get_bound_info(self, players, start, end):
         bounties = {}
         count = 0
-        for i in range(0,5):
-            player = players[i]
+        for p in range(start,end):
+            player = players[p]
             runes = player.get_runes_log()
             for rune in runes:
-                for i in range(13,-1, -1):
+                for i in range(13, -1, -1):
                     time = rune["time"]
                     if rune["key"] == 5:
                         if time > (i*500):
+                            print(p,rune,(i*500))
                             count += 1
                             if (i*5) in bounties:
                                 bounties[i*5] += 1
@@ -246,33 +247,56 @@ class Infographic:
         draw = ImageDraw.Draw(img)
         bounty_rune = Image.open("images/bounty_rune.png")
 
-        img.paste(bounty_rune, (-300,-200), bounty_rune)
-        b_info = self.get_bound_info(players)
-        for time in sorted(b_info):
-            up = b_info[time]
+        img.paste(bounty_rune, (-330,-200), bounty_rune)
+        b_info_rad = self.get_bound_info(players, 0, 5)
+        b_info_dir = self.get_bound_info(players, 6, 10)
+        draw.line((360, 140, 1024 - 80,140),width=1, fill=(50,50,50,128))
 
-            small_bounty = Image.open("images/bounty_rune_mini.png")
+        draw.text((270,90), "RAD", font=self.text_font, fill=(63, 204, 47,128))
+        draw.text((270,170), "DIRE", font=self.text_font, fill=(191, 38, 38,128))
+        
+        small_bounty = Image.open("images/bounty_rune_mini.png")
+        
+        for time in sorted(b_info_rad):
+            up = b_info_rad[time]
+
             diff = 1024 - 350
-            diff /= len(b_info)
+            diff /= len(b_info_rad)
             diff /= 5
+
             x = int(350 + (time*diff))
             y = 125
             img.paste(small_bounty, (x, y), small_bounty)
 
+
             for i in range(up):
                 up_arrow = Image.open("images/up_arrow.png")
-                new_width  = 30
-                new_height = int(new_width * 352 / 602 )
-
-                new_height = 15
-                new_width  = int(new_height * 602 / 352)
-                up_arrow = up_arrow.resize((new_width, new_height), Image.ANTIALIAS)
-
-                img.paste(up_arrow, (x + 2, y - 30 - (i*20)), up_arrow)
+                up_arrow = self._resize_image(up_arrow,15,30)
+                img.paste(up_arrow, (x + 2, y - 30 - (i*15)), up_arrow)
             
-            draw.text((x + 6,y + 100), str(time), font=self.text_font, fill=(170,170,170,128))
+            draw.text((x + 43,y+3), str(time), font=self.text_font, fill=(170,170,170,128))
+        
+        for time in sorted(b_info_dir):
+            up = b_info_dir[time]
 
-        img.show()
+            small_bounty = Image.open("images/bounty_rune_mini.png")
+            diff = 1024 - 350
+            diff /= len(b_info_rad)
+            diff /= 5
+
+            x = int(350 + (time*diff))
+            y = 125
+            img.paste(small_bounty, (x, y), small_bounty)
+
+
+            for i in range(up):
+                up_arrow = Image.open("images/up_arrow.png")
+                up_arrow = self._resize_image(up_arrow,15,30)
+                up_arrow = up_arrow.rotate(180)
+                img.paste(up_arrow, (x + 2, y + 45 + (i*15)), up_arrow)
+
+        #img.show()
+        img.save("bounty.png")
 
     def _get_nw_graph(self, players):
         fig = go.Figure()
@@ -328,10 +352,10 @@ if __name__ == "__main__":
     
 
     od = OpenDota()
-    match = od.get_match_from_file("test_data.txt")
+    match = od.get_match_from_file("test3.json")
     #match = od.get_match(5802886821)
     players = match.get_players()
-    inf = Infographic(players[6])
+    inf = Infographic(players[5])
     inf.create_hero(players)
     #inf.create_bound_info(players)
     

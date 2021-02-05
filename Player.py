@@ -149,3 +149,36 @@ class Player:
 
     def get_healing(self):
         return self._p_match_data["hero_healing"]
+
+    def get_damage_taken_types(self):
+        magical = 0
+        physical = 0
+        pure = 0
+        unknown = 0
+        abilityJson = None
+
+        with open("data/abilities.json") as dmg_file:
+            abilityJson = json.load(dmg_file)
+
+        damageTaken = self.get_damage_inflictor_taken()
+        for dmg in damageTaken:
+            if dmg in abilityJson:
+                ability = abilityJson[dmg]
+                if "dmg_type" in ability:
+                    dType = ability["dmg_type"]
+                    if dType == "Magical":
+                        magical += damageTaken[dmg]
+                    elif dType == "Pure":
+                        pure += damageTaken[dmg]
+                    else:
+                        physical += damageTaken[dmg]
+                else:
+                    print(dmg)
+                    unknown += damageTaken[dmg]
+            elif dmg == "null":
+                physical += damageTaken[dmg]
+            else:
+                print(dmg)
+                unknown += damageTaken[dmg]
+
+        return physical, magical, pure, unknown
