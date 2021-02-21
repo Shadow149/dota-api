@@ -1,0 +1,286 @@
+#inline_section{
+    display: inline;
+}
+
+#teamSection{
+    display: inline;
+    margin-bottom: 15px;
+}
+
+#team{
+    font-size: 60px;
+    color: "{self.team_colour}";
+}
+
+#win{
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+#win_background{
+    display: flex;
+    width: "{self.win_background_width}";
+    height: 27px;
+    margin-left: 10px;
+    margin-top: 27px;
+    color: "{self.win_background_colour}";
+}
+#table {
+    margin-top: 20px;
+    display: inline;
+}
+
+#hero_img {
+    display: inline;
+    margin-top: 10px;
+    width: 200px;
+    height: 100px;
+}
+
+#heros {
+    margin-top: 30px;
+    display: vertical;
+}
+
+#data {
+    display: inline;
+}
+
+#startColumn {
+    margin-left: 30px;
+}
+
+#column {
+    margin-left: 10px;
+    display: vertical;
+}
+
+#item_column {
+    margin-left: 10px;
+    display: vertical;
+}
+
+#items {
+    display: inline;
+    margin-top: 30px;
+}
+
+#header {
+    font-size: 35px;
+}
+
+
+#labelField{
+    margin-top: 46px;
+    color: rgb(145, 172, 180);
+}
+
+
+
+#kda0{
+    color: "{self.kda[0][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#kda1{
+    color: "{self.kda[1][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#kda2{
+    color: "{self.kda[2][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#kda3{
+    color: "{self.kda[3][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#kda4{
+    color: "{self.kda[4][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+
+#cs0{
+    color: "{self.cs[0][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#cs1{
+    color: "{self.cs[1][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#cs2{
+    color: "{self.cs[2][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#cs3{
+    color: "{self.cs[3][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#cs4{
+    color: "{self.cs[4][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+
+#networth0{
+    color: "{self.networth[0][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#networth1{
+    color: "{self.networth[1][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#networth2{
+    color: "{self.networth[2][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#networth3{
+    color: "{self.networth[3][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#networth4{
+    color: "{self.networth[4][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+
+#gpm0{
+    color: "{self.gpm[0][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#gpm1{
+    color: "{self.gpm[1][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#gpm2{
+    color: "{self.gpm[2][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#gpm3{
+    color: "{self.gpm[3][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#gpm4{
+    color: "{self.gpm[4][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+
+#xpm0{
+    color: "{self.xpm[0][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#xpm1{
+    color: "{self.xpm[1][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#xpm2{
+    color: "{self.xpm[2][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#xpm3{
+    color: "{self.xpm[3][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#xpm4{
+    color: "{self.xpm[4][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+
+#dmg_done0{
+    color: "{self.dmg_done[0][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#dmg_done1{
+    color: "{self.dmg_done[1][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#dmg_done2{
+    color: "{self.dmg_done[2][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#dmg_done3{
+    color: "{self.dmg_done[3][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#dmg_done4{
+    color: "{self.dmg_done[4][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+
+#dmg_tkn0{
+    color: "{self.dmg_tkn[0][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#dmg_tkn1{
+    color: "{self.dmg_tkn[1][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#dmg_tkn2{
+    color: "{self.dmg_tkn[2][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#dmg_tkn3{
+    color: "{self.dmg_tkn[3][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#dmg_tkn4{
+    color: "{self.dmg_tkn[4][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#stuns0{
+    color: "{self.stuns[0][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#stuns1{
+    color: "{self.stuns[1][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#stuns2{
+    color: "{self.stuns[2][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#stuns3{
+    color: "{self.stuns[3][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}
+#stuns4{
+    color: "{self.stuns[4][1]}";
+    margin-top: 42px;
+    font-size: 30px;
+}

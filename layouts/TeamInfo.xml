@@ -1,0 +1,143 @@
+<root>
+    <Section>
+        <Section id="teamSection">
+            <Title id="team" text="{self.teamName}"/>
+            <Block id="win_background"/>
+            <Label id="win" text="{self.win}"/>
+        </Section>
+        
+        <Section id="table">
+            
+            <Section id="heros">
+                <Image src="{self.hero_url[0][0]}" id="hero_img"/>
+                <Image src="{self.hero_url[1][0]}" id="hero_img"/>
+                <Image src="{self.hero_url[2][0]}" id="hero_img"/>
+                <Image src="{self.hero_url[3][0]}" id="hero_img"/>
+                <Image src="{self.hero_url[4][0]}" id="hero_img"/>
+            </Section>
+
+            <Section id="data">
+                <Section id="startColumn">
+                    <Title id="header" text="Name"/>
+                    <Label text="{self.playerName[0][0]}" id="labelField"/>
+                    <Label text="{self.playerName[1][0]}" id="labelField"/>
+                    <Label text="{self.playerName[2][0]}" id="labelField"/>
+                    <Label text="{self.playerName[3][0]}" id="labelField"/>
+                    <Label text="{self.playerName[4][0]}" id="labelField"/>
+                </Section>
+                <Section id="column">
+                    <Title id="header" text="KDA"/>
+                    <Title text="{self.kda[0][0]}" id="kda0"/>
+                    <Title text="{self.kda[1][0]}" id="kda1"/>
+                    <Title text="{self.kda[2][0]}" id="kda2"/>
+                    <Title text="{self.kda[3][0]}" id="kda3"/>
+                    <Title text="{self.kda[4][0]}" id="kda4"/>
+                </Section>
+                <Section id="column">
+                    <Title id="header" text="CS"/>
+                    <Title text="{self.cs[0][0]}" id="cs0"/>
+                    <Title text="{self.cs[1][0]}" id="cs1"/>
+                    <Title text="{self.cs[2][0]}" id="cs2"/>
+                    <Title text="{self.cs[3][0]}" id="cs3"/>
+                    <Title text="{self.cs[4][0]}" id="cs4"/>
+                </Section>
+                <Section id="column">
+                    <Title id="header" text="NW"/>
+                    <Title text="{self.networth[0][0]}" id="networth0"/>
+                    <Title text="{self.networth[1][0]}" id="networth1"/>
+                    <Title text="{self.networth[2][0]}" id="networth2"/>
+                    <Title text="{self.networth[3][0]}" id="networth3"/>
+                    <Title text="{self.networth[4][0]}" id="networth4"/>
+                </Section>
+                <Section id="column">
+                    <Title id="header" text="GPM"/>
+                    <Title text="{self.gpm[0][0]}" id="gpm0"/>
+                    <Title text="{self.gpm[1][0]}" id="gpm1"/>
+                    <Title text="{self.gpm[2][0]}" id="gpm2"/>
+                    <Title text="{self.gpm[3][0]}" id="gpm3"/>
+                    <Title text="{self.gpm[4][0]}" id="gpm4"/>
+                </Section>
+                <Section id="column">
+                    <Title id="header" text="XPM"/>
+                    <Title text="{self.xpm[0][0]}" id="xpm0"/>
+                    <Title text="{self.xpm[1][0]}" id="xpm1"/>
+                    <Title text="{self.xpm[2][0]}" id="xpm2"/>
+                    <Title text="{self.xpm[3][0]}" id="xpm3"/>
+                    <Title text="{self.xpm[4][0]}" id="xpm4"/>
+                </Section>
+                <Section id="column">
+                    <Title id="header" text="Dmg Done"/>
+                    <Title text="{self.dmg_done[0][0]}" id="dmg_done0"/>
+                    <Title text="{self.dmg_done[1][0]}" id="dmg_done1"/>
+                    <Title text="{self.dmg_done[2][0]}" id="dmg_done2"/>
+                    <Title text="{self.dmg_done[3][0]}" id="dmg_done3"/>
+                    <Title text="{self.dmg_done[4][0]}" id="dmg_done4"/>
+                </Section>
+                <Section id="column">
+                    <Title id="header" text="Dmg Taken"/>
+                    <Title text="{self.dmg_tkn[0][0]}" id="dmg_tkn0"/>
+                    <Title text="{self.dmg_tkn[1][0]}" id="dmg_tkn1"/>
+                    <Title text="{self.dmg_tkn[2][0]}" id="dmg_tkn2"/>
+                    <Title text="{self.dmg_tkn[3][0]}" id="dmg_tkn3"/>
+                    <Title text="{self.dmg_tkn[4][0]}" id="dmg_tkn4"/>
+                </Section>
+                <Section id="column">
+                    <Title id="header" text="Stuns"/>
+                    <Title text="{self.stuns[0][0]}s" id="stuns0"/>
+                    <Title text="{self.stuns[1][0]}s" id="stuns1"/>
+                    <Title text="{self.stuns[2][0]}s" id="stuns2"/>
+                    <Title text="{self.stuns[3][0]}s" id="stuns3"/>
+                    <Title text="{self.stuns[4][0]}s" id="stuns4"/>
+                </Section>
+                <Section id="item_column">
+                    <Title id="header" text="Items"/>
+                    
+                    <Section id="items">
+                        <Image src="{self.item00}"/>
+                        <Image src="{self.item01}"/>
+                        <Image src="{self.item02}"/>
+                        <Image src="{self.item03}"/>
+                        <Image src="{self.item04}"/>
+                        <Image src="{self.item05}"/>
+                    </Section>
+                    <Section id="items">
+                        <Image src="{self.item10}"/>
+                        <Image src="{self.item11}"/>
+                        <Image src="{self.item12}"/>
+                        <Image src="{self.item13}"/>
+                        <Image src="{self.item14}"/>
+                        <Image src="{self.item15}"/>
+                    </Section>
+                    <Section id="items">
+                        <Image src="{self.item20}"/>
+                        <Image src="{self.item21}"/>
+                        <Image src="{self.item22}"/>
+                        <Image src="{self.item23}"/>
+                        <Image src="{self.item24}"/>
+                        <Image src="{self.item25}"/>
+                    </Section>
+                    <Section id="items">
+                        <Image src="{self.item30}"/>
+                        <Image src="{self.item31}"/>
+                        <Image src="{self.item32}"/>
+                        <Image src="{self.item33}"/>
+                        <Image src="{self.item34}"/>
+                        <Image src="{self.item35}"/>
+                    </Section>
+                    <Section id="items">
+                        <Image src="{self.item40}"/>
+                        <Image src="{self.item41}"/>
+                        <Image src="{self.item42}"/>
+                        <Image src="{self.item43}"/>
+                        <Image src="{self.item44}"/>
+                        <Image src="{self.item45}"/>
+                    </Section>
+                    
+                </Section>
+            </Section>
+
+        </Section>
+
+
+    </Section>
+</root>

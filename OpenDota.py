@@ -31,7 +31,7 @@ class OpenDota:
         """
         return Match(fileLocation = fileLocation)
 
-    def get_latest_match(self, account_id) -> int:
+    def _get_recent_matches(self, account_id) -> json:
         rh = HTTPRequestHandler()
         # Get request url
         rq = "https://api.opendota.com/api/players/" + str(account_id) + "/recentMatches"
@@ -41,6 +41,45 @@ class OpenDota:
         # Return as json object
         if response != None:
             json_data = json.loads(response)
+        return json_data
+
+    def get_last_x_matches_data_simple(self, number, account_id) -> list:
+        """
+        Get last specified number of matches, and returning simplified data
+
+        Args:
+            number: Number of past games
+            account_id: steam/dota account number
+
+        Returns:
+            list: list of data in format: [match_id,hero_name,kills,deaths,assists]
+        """
+        # Get recent matches
+        json_data = self._get_recent_matches(account_id)
+        
+        matches = []
+
+        hero_json = None
+
+        # Get hero json to get localised hero name from id
+        with open("data/heroes.json") as hero_file:
+            hero_json = json.load(hero_file)
+
+        for i in range(number):
+            match_id = json_data[i]["match_id"]
+
+            hero_id = json_data[i]["hero_id"]
+            hero_name = hero_json[str(hero_id)]["localized_name"]
+
+            kills = json_data[i]["kills"]
+            deaths = json_data[i]["deaths"]
+            assists = json_data[i]["assists"]
+            matches.append([match_id,hero_name,kills,deaths,assists])
+
+        return matches
+
+    def get_latest_match(self, account_id) -> Match:
+        json_data = self._get_recent_matches(account_id)
         
         match_id = json_data[0]["match_id"]
         return Match(match_id)
@@ -48,31 +87,8 @@ class OpenDota:
 
 if __name__ == "__main__":
     od = OpenDota()
-    match = od.get_match_from_file("test_data.txt")
-    players = match.get_players()
-    # for player in players:
-    #     print(player.team, player.personaname, player.hero, player.get_lane(), player.get_lane_role())
-    player = players[4]
-    pos = player.get_lane_pos()
-    print(player.personaname, player.hero)
+    matches = od.get_last_x_matches_data_simple(5, 134205395)
+
+    for i, match in enumerate(matches):
+        print(f"({i}) Match ID: {match[0]}, Hero: {match[1]} K: {match[2]} D: {match[3]} A: {match[4]}")
     
-    minimap = Image.open('images/minimap.png')
-    img = Image.new('RGBA', (1024, 1024), (255, 0, 0, 0))
-    pixels = img.load()
-
-    for x in pos:
-        for y in pos[x]:
-            # x_coord = (int(x)-70)
-            # y_coord = (200-int(y)+70)
-            OFFSET = 60
-            x_coord = ((int(x)) * 5 - 310) * 1.6
-            y_coord = -(1024 - ((200 - int(y)) * 5 + 330)) * 1.6
-
-            d = int(pos[x][y])
-            for i in range(-10,10):
-                for j in range(-10,10):
-                    pixels[x_coord + i,y_coord + j] = (50*d,10*d,d)
-            
-    img1 = img.filter(ImageFilter.GaussianBlur(radius=20))
-    minimap.paste(img1 ,(0, 0), img1)
-    minimap.show()

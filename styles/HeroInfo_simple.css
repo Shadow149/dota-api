@@ -29,7 +29,7 @@
 
 #hero_img {
     display: inline;
-    margin-left: 5px;
+    margin-left: 65px;
     margin-top: 20px;
 }
 
@@ -59,12 +59,12 @@
 }
 
 #KDA{
-    /* margin-left: 75px; */
+    margin-left: 75px;
 }
 
 #info {
-    margin-left: 20px;
-    margin-top: 15px;
+    margin-left: 133px;
+    margin-top: 5px;
 }
 
 #endinfo{
@@ -98,74 +98,8 @@
     display: inline;
 }
 
-#dmg_breakdown{
-    margin-left: 30px;
-    margin-top: 4px;
-}
-
-#bars{
-    margin-left: 10px;
-}
-
-#phy_bar{
-    margin-left: 10px;
-    height: 20px;
-    width: "{self.phBarLength}";
-    color: rgb(190, 46, 65);
-}
-#mag_bar{
-    margin-left: 10px;
-    height: 20px;
-    width: "{self.magBarLength}";
-    margin-bottom: 10px;
-    color:rgb(45, 105, 196);
-}
-#pure_bar{
-    margin-left: 10px;
-    height: 20px;
-    width: "{self.pureBarLength}";
-    margin-bottom: 20px;
-    color: rgb(214, 171, 54);
-}
-
-#phy_dmg{
+#footer {
     font-size: 18px;
-    display: flex;
-    margin-bottom: 20px;
-    margin-left: 15px;
-}
-#mag_dmg{
-    font-size: 18px;
-    display: flex;
-    margin-bottom: 10px;
-    margin-left: 15px;
-}
-#pure_dmg{
-    font-size: 18px;
-    display: flex;
-    margin-left: 15px;
-}
-
-
-#phy_title{
-    font-size: 20px;
-    color: rgb(145, 172, 180);
-}
-#mag_title{
-    font-size: 20px;
-    color: rgb(145, 172, 180);
-    margin-top: 10px;
-}
-
-#pure_title{
-    font-size: 20px;
-    color: rgb(145, 172, 180);
     margin-top: 20px;
-}
-
-#aghs {
-    margin-left: 17px;
-    margin-top: 25px;
-    width: 50px;
-    height: 100px;
+    color: rgb(111, 112, 124);
 }

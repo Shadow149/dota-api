@@ -13,6 +13,11 @@ IMAGES = "https://cdn.cloudflare.steamstatic.com/"
 
 class XMLImage:
     def __init__(self, width, height, xml_path, css_path):
+        self.width = width
+        self.height = height
+        self.xml_path = xml_path
+        self.css_path = css_path
+
         self.xml_handler = XMLHandler(xml_path) 
         self.css_handler = CSSHandler(css_path)
 
@@ -114,6 +119,9 @@ class XMLImage:
                     if imageElement.img_height != None or imageElement.img_width != None:
                         imageElement.pil_data = self.resize_image(imageElement.pil_data, imageElement.img_height, imageElement.img_width)
                     
+                    if imageElement.pil_data == None:
+                        return
+                        
                     mode = imageElement.pil_data.mode
                     
                     if mode == 'RGBA':

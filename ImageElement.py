@@ -71,19 +71,22 @@ class ImageElement:
             
             font = ImageFont.truetype(HEADER_FONT_FAMILY, int(self.font_size))
             text_size = draw.textsize(text, font)
-            return text_size[0] + 10, text_size[1] + 10
+            return text_size[0] + 10, self.font_size + 10
 
         if self.element.element == "label":
             text = self.element.data[0]
                 
             font = ImageFont.truetype(self.font_family, int(self.font_size))
             text_size = draw.textsize(text, font)
-            return text_size[0] + 10, text_size[1] + 10
+            return text_size[0] + 10, self.font_size + 10
 
         elif self.element.element == "image":
                 
             path = self.element.data[0]
-            if path[:4] == "http":
+            if len(path) == 0:
+                img = None
+                return 0,0
+            elif path[:4] == "http":
                 img = Image.open(requests.get(path, stream=True).raw)
             elif path[0] == 'b':
                 img = Image.open(io.BytesIO(eval(path)))

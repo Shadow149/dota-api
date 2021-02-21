@@ -15,13 +15,12 @@
             
         <Section>
             <Title text="{self.hero}"/>
-            <Title id="KDA" text="{self.kda}"/>
+            <Title text="{self.kda}"/>
         </Section>
         
         <Section id="hero_img">
             <Image src="{self.hero_url}"/>
-            <Image id="heatmap" src="{self.heatmap_img}"/>
-            <Image id="aghs" src="{self.aghs_img}">
+            <!-- <Image id="heatmap" src="{self.heatmap_img}"/> -->
         </Section>
         
         <Section id="items">
@@ -59,21 +58,21 @@
                         <Label id="data_title" text="CS:"/>
                         <Label id="data_title" text="GPM:"/>
                         <Label id="data_title" text="Damage Done:"/>
-                        <Label id="data_title" text="Damage Taken:"/>
+                        <!-- <Label id="data_title" text="Damage Taken:"/> -->
                         <Label id="data_title" text="Healing:"/>
-                        <Label id="data_title" text="Stuns:"/>
+                        <!-- <Label id="data_title" text="Stuns:"/> -->
                     </Section>
                     <Section>
                         <Label text="{self.networth}"/>
                         <Label text="{self.cs}"/>
                         <Label text="{self.gpm}"/>
                         <Label text="{self.dmg_done}"/>
-                        <Label text="{self.dmg_tkn}"/>
+                        <!-- <Label text="{self.dmg_tkn}"/> -->
                         <Label text="{self.heal}"/>
-                        <Label text="{self.stun}s"/>
+                        <!-- <Label text="{self.stun}s"/> -->
                     </Section>
                 </Section>
-                <Section id="dmg_breakdown">
+                <!-- <Section id="dmg_breakdown">
                     <Label text="Damage Taken"/>
                     <Section id="bars">
                         <Label id="phy_title" text="Physical"/>
@@ -88,10 +87,11 @@
                         <Block id="pure_bar"/>
                         <Label id="pure_dmg" text="{self.pure}"/>
                     </Section>
-                </Section>
+                </Section> -->
                 
             </Section>
         </Section>
+        <Label id="footer" text="Limited data version">
 
 
     </Section>

@@ -1,6 +1,8 @@
 import json
 from Item import Item
 
+VALUE_MISSING = "VNA"
+
 class Player:
     def __init__(self, data):
         self._p_match_data = data
@@ -9,6 +11,11 @@ class Player:
         self.heroId = self._p_match_data["hero_id"]
         self.hero = self._get_hero()
         self.team = self._get_team()
+    
+    def handle_missing_value(self, value):
+        if value in self._p_match_data:
+            return self._p_match_data[value]
+        return VALUE_MISSING
 
     def _get_account_id(self):
         a_id = self._p_match_data["account_id"]
@@ -46,24 +53,24 @@ class Player:
         return "Radiant"
 
     def get_net_worth(self):
-        return self._p_match_data["net_worth"]
+        return self.handle_missing_value("net_worth")
 
     def get_cs(self):
-        lh = self._p_match_data["last_hits"]
-        dn = self._p_match_data["denies"]
+        lh = self.handle_missing_value("last_hits")
+        dn = self.handle_missing_value("denies")
         return [lh,dn]
 
     def get_KDA(self):
-        k = self._p_match_data["kills"]
-        d = self._p_match_data["deaths"]
-        a = self._p_match_data["assists"]
+        k = self.handle_missing_value("kills")
+        d = self.handle_missing_value("deaths")
+        a = self.handle_missing_value("assists")
         return [k,d,a]
 
     def get_lane(self):
         # 1: Bot
         # 2: Mid
         # 3: Top
-        lane = self._p_match_data["lane"]
+        lane = self.handle_missing_value("lane")
         return lane
     
     def get_lane_text(self):
@@ -76,79 +83,83 @@ class Player:
     
     def get_lane_role(self):
         # ?????
-        role = self._p_match_data["lane_role"]
+        role = self.handle_missing_value("lane_role")
         return role
 
     def get_items(self):
         items = []
         for i in range(0,6):
-            items.append(Item(self._p_match_data[f"item_{i}"]))
+            item = self.handle_missing_value(f"item_{i}")
+            if item == VALUE_MISSING:
+                continue
+            items.append(Item(item))
         return items
 
     def get_win(self):
-        return bool(self._p_match_data["win"])
+        return bool(self.handle_missing_value("win"))
 
     def get_lane_pos(self) -> dict:
-        pos = self._p_match_data["lane_pos"]
-        return pos
+        return self.handle_missing_value("lane_pos")
 
     def get_xpm(self):
-        return self._p_match_data["xp_per_min"]
+        return self.handle_missing_value("xp_per_min")
 
     def get_gpm(self):
-        return self._p_match_data["gold_per_min"]
+        return self.handle_missing_value("gold_per_min")
 
     def get_teamfight_participation(self):
-        return self._p_match_data["teamfight_participation"]
+        return self.handle_missing_value("teamfight_participation")
 
     def get_lane_efficiency(self):
-        return self._p_match_data["lane_efficiency"]
+        return self.handle_missing_value("lane_efficiency")
 
     def get_lane_kills(self):
-        return self._p_match_data["lane_kills"]
+        return self.handle_missing_value("lane_kills")
 
     def get_neutral_kills(self):
-        return self._p_match_data["neutral_kills"]
+        return self.handle_missing_value("neutral_kills")
 
     def get_gold_time(self):
-        return self._p_match_data["gold_t"]
+        return self.handle_missing_value("gold_t")
     
     def get_times(self):
-        return self._p_match_data["times"]
+        return self.handle_missing_value("times")
 
     def get_obs_killed(self):
-        return self._p_match_data["obs_left_log"]
+        return self.handle_missing_value("obs_left_log")
 
     def get_obs_placed(self):
-        return self._p_match_data["obs_log"]
+        return self.handle_missing_value("obs_log")
 
     def get_runes_log(self):
-        return self._p_match_data["runes_log"]
+        return self.handle_missing_value("runes_log")
 
     def get_damage_done(self):
-        return self._p_match_data["hero_damage"]
+        return self.handle_missing_value("hero_damage")
 
     def get_damage_taken(self):
-        return self._p_match_data["damage_taken"]
+        return self.handle_missing_value("damage_taken")
 
     def get_total_damage_taken(self):
         dmg = self.get_damage_taken()
+        if dmg == VALUE_MISSING or dmg == None:
+            return VALUE_MISSING
         total = 0
         for d in dmg:
             total += dmg[d]
         return total
 
     def get_damage_inflictor(self):
-        return self._p_match_data["damage_inflictor"]
+        return self.handle_missing_value("damage_inflictor")
         
     def get_damage_inflictor_taken(self):
-        return self._p_match_data["damage_inflictor_received"]
+        return self.handle_missing_value("damage_inflictor_received")
 
     def get_total_stuns(self):
-        return self._p_match_data["stuns"]
+        return self.handle_missing_value("stuns")
 
     def get_healing(self):
-        return self._p_match_data["hero_healing"]
+        return self.handle_missing_value("hero_healing")
 
     def get_damage_taken_types(self):
         magical = 0
@@ -161,6 +172,8 @@ class Player:
             abilityJson = json.load(dmg_file)
 
         damageTaken = self.get_damage_inflictor_taken()
+        if damageTaken == VALUE_MISSING:
+            return VALUE_MISSING
         for dmg in damageTaken:
             if dmg in abilityJson:
                 ability = abilityJson[dmg]
@@ -182,3 +195,6 @@ class Player:
                 unknown += damageTaken[dmg]
 
         return physical, magical, pure, unknown
+
+    def get_item_first_purchase_time(self):
+        return self.handle_missing_value("first_purchase_time")
