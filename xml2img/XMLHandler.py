@@ -1,11 +1,13 @@
+from typing import Iterable
 from parsel import Selector
-from Element import Element
-from ImageElement import ImageElement
+from .Element import Element
+from .ImageElement import ImageElement
 
 class XMLHandler:
-    def __init__(self, path):
+    def __init__(self, path, constants):
         self.xml = open(path,'r').read()
         self.xml_list = []
+        self.constants = constants
 
     def _get_nodes(self,nodes, parent_element):
         for node in nodes:
@@ -15,15 +17,23 @@ class XMLHandler:
                 data = node.xpath("@text|@src").getall()
 
                 n = Element(element, data, css_id, [], parent_element)
-                ie = ImageElement(n)
+                ie = ImageElement(n, self.constants)
                 if parent_element != None:
                     parent_element.element.children.append(ie)
                 else:
                     self.xml_list.append(ie)
             else: 
                 css_id = node.xpath("@id").getall()
-                n = Element("Section",None,css_id,[],parent_element)
-                ie = ImageElement(n)
+                iterable = node.xpath("@iterable").getall()
+                element_name = node.xpath("@element").getall()
+                
+                if len(iterable) > 0:
+                    n = Element("Section",None,css_id,[],parent_element,iterable,element_name,"RepeatedSection")
+                else:
+                    n = Element("Section",None,css_id,[],parent_element,iterable,element_name)
+                    
+                ie = ImageElement(n, self.constants)
+                
                 self._get_nodes(node.xpath("child::*"),ie)
                 if parent_element != None:
                     parent_element.element.children.append(ie)
@@ -34,13 +44,4 @@ class XMLHandler:
         selector = Selector(text=self.xml)
         nodes = selector.xpath("//root/*")
         self._get_nodes(nodes, None)
-        print(self.xml_list)
         return self.xml_list
-
-if __name__ == "__main__":
-    xmlH = XMLHandler('layouts/test.xml')
-    n = xmlH.get_xml_elements()
-    print("=========")
-    print(n)
-    # for i in n:
-    #     print(n)

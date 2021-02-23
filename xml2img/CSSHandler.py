@@ -1,5 +1,5 @@
 from parsel import Selector
-from Element import Element
+from .Element import Element
 
 import cssselect2
 import tinycss2
@@ -56,11 +56,5 @@ class CSSHandler:
 
 
             rules[selector_string[0].value] = s_rules
-
-            #print(content_string)
-        print(rules)
         return rules
 
-if __name__ == "__main__":
-    h = CSSHandler('styles/test.css')
-    h.get_css()

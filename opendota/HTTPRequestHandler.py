@@ -2,7 +2,7 @@ import requests
 from requests.exceptions import HTTPError
 
 class HTTPRequestHandler:   
-    def get(self, request: str) -> str:
+    def get(self, request: str):
         """
         Get a response from an HTTP get request
 

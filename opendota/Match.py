@@ -1,5 +1,5 @@
-from HTTPRequestHandler import HTTPRequestHandler
-from Player import Player
+from .HTTPRequestHandler import HTTPRequestHandler
+from .Player import Player
 import json
 import io
 

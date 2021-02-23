@@ -1,5 +1,5 @@
 import json
-from Item import Item
+from .Item import Item
 
 VALUE_MISSING = "VNA"
 

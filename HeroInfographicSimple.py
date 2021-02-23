@@ -1,5 +1,5 @@
-from XMLImage import XMLImage
-from OpenDota import OpenDota
+from xml2img.XMLImage import XMLImage
+from opendota.OpenDota import OpenDota
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import io
 import json
@@ -7,8 +7,8 @@ import json
 IMAGES = "https://cdn.cloudflare.steamstatic.com/"
 
 class HeroInfographicSimple (XMLImage):
-    def __init__(self, width, height, xml_path, css_path, player):
-        super().__init__(width, height, xml_path, css_path)
+    def __init__(self, width, height, xml_path, css_path, background_colour, constants, player):
+        super().__init__(width, height, xml_path, css_path, background_colour, constants)
         self.player = player
 
     def initialise_variables(self) -> bool:

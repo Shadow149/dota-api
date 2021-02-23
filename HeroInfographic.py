@@ -1,5 +1,6 @@
-from XMLImage import XMLImage
-from OpenDota import OpenDota
+from xml2img.XMLImage import XMLImage
+from xml2img.Constants import Constants
+from opendota.OpenDota import OpenDota
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import io
 import json
@@ -8,9 +9,11 @@ from HeroInfographicSimple import HeroInfographicSimple
 IMAGES = "https://cdn.cloudflare.steamstatic.com/"
 
 class HeroInfographic (XMLImage):
-    def __init__(self, width, height, xml_path, css_path, player):
-        super().__init__(width, height, xml_path, css_path)
+    def __init__(self, width, height, xml_path, css_path, background_colour, constants, player):
+        super().__init__(width, height, xml_path, css_path, background_colour, constants)
         self.player = player
+        self.background_colour = background_colour
+        self.constants = constants
 
     def create_heat_map(self):
         pos = self.player.get_lane_pos()
@@ -43,7 +46,7 @@ class HeroInfographic (XMLImage):
             self.set_variable('stun', round(self.player.get_total_stuns(),0))
         else:
             # Limited data version!
-            inf = HeroInfographicSimple(600, 770, 'layouts/HeroInfo_simple.xml', 'styles/HeroInfo_simple.css', self.player)
+            inf = HeroInfographicSimple(600, 770, 'layouts/HeroInfo_simple.xml', 'styles/HeroInfo_simple.css', self.background_colour, self.constants, self.player)
             completed = inf.initialise_variables()
             if completed:
                 img = inf.create()
@@ -162,9 +165,11 @@ if __name__ == "__main__":
     match = od.get_match(5845488682)
     players = match.get_players()
     
+    consts = Constants()
+    
     inf = HeroInfographic(int(sys.argv[1]),int(sys.argv[2]),
                           sys.argv[3], 
-                          sys.argv[4], 
+                          sys.argv[4], (32, 39, 50), consts,
                           players[int(sys.argv[5])])
 
     # inf = HeroInfographic(int(sys.argv[1]),int(sys.argv[2]),

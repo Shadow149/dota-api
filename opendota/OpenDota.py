@@ -1,5 +1,5 @@
-from Match import Match
-from HTTPRequestHandler import HTTPRequestHandler
+from .Match import Match
+from .HTTPRequestHandler import HTTPRequestHandler
 import json
 from PIL import Image, ImageFilter
 
