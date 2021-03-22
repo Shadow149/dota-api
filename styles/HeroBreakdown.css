@@ -1,0 +1,275 @@
+#inline_section{
+    display: inline;
+}
+
+#teamSection{
+    display: inline;
+}
+
+#team{
+    font-size: 60px;
+    color: "{self.team_colour}";
+}
+
+#win{
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+#win_background{
+    display: flex;
+    width: "{self.win_background_width}";
+    height: 27px;
+    margin-left: 10px;
+    margin-top: 27px;
+    color: "{self.win_background_colour}";
+}
+
+#hero_img {
+    display: inline;
+    margin-left: 5px;
+    margin-top: 20px;
+}
+
+#bckHero{
+    margin-bottom: 50px;
+    margin-right: 50px;
+    display: flex;
+    width: 400px;
+}
+
+#spell_dmg{
+    width: 75px;
+    height: 27px;
+}
+#column{
+    /* margin-left: 100px; */
+}
+#barsection{
+    margin-left: 100px;
+}
+
+#dmg_done_section{
+    margin-top: 20px;
+}
+#spell_dmg_percent{
+    /* margin-right: 50px; */
+    width: 75px;
+    height: 27px;
+}
+
+#playerTitle{
+    color: rgb(94,186,237);
+}
+
+#dmg_taken {
+    display: inline;
+    margin-top: 20px;
+}
+#dmg_grid{
+    margin-top: 10px;
+}
+#bottom_totals{
+    margin-top: 20px;
+    width: 575px;
+    height: 1px;
+    color: rgb(190, 46, 65);
+    margin-left: 50px;
+}
+
+#dmg_numbers{
+    margin-top: 10px;
+    width: 100px;
+    height: 10px;
+}
+
+#hero_header{
+    margin-top: 10px;
+    display: inline;
+    margin-left: 25px;
+}
+
+#totals{
+    display: inline;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+#hero_icon {
+    /* margin-left: 25px; */
+    width: 100px;
+    height: 50px;
+}
+#ability {
+    width: 50px;
+    height: 50px;
+}
+#dmg_text {
+    display: inline;
+    margin-top: 10px;
+    margin-left: 7px;
+}
+
+#col1 {
+    display: inline;
+    margin-left: 110px;
+}
+
+#items{
+    display: inline;
+    margin-top: 20px;
+}
+#item_time {
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+#data_title{
+    color: rgb(145, 172, 180);
+}
+
+#KDA{
+    /* margin-left: 75px; */
+}
+
+#info {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+#endinfo{
+    margin-top: 5px;
+}
+
+#heatmap {
+    margin-bottom: 10px;
+    width: 164px;
+    height: 164px;
+}
+
+#creeps {
+    display: inline;
+    margin-top: 20px;
+}
+
+#lane_creeps {
+    width: 150px;
+    height: 150px;
+}
+#creep_info{
+    margin-left: 50px;
+}
+#creep_cs{
+    margin-left: 20px;
+}
+
+#subtitle{
+    font-family: "fonts/radiance-bold.otf";
+}
+
+#data{
+    margin-top: 10px;
+    display: inline;
+}
+
+#dmg_breakdown{
+    margin-right: 50px;
+    /* margin-left: 30px;
+    margin-top: 4px; */
+}
+#dmg_breakdown_done{
+    margin-right: 50px;
+    /* margin-left: 30px;
+    margin-top: 4px; */
+    margin-top: 20px;
+}
+
+#bars{
+    margin-left: 10px;
+}
+
+#phy_bar_taken{
+    margin-left: 10px;
+    height: 20px;
+    width: "{self.phBarLengthTaken}";
+    color: rgb(190, 46, 65);
+}
+#mag_bar_taken{
+    margin-left: 10px;
+    height: 20px;
+    width: "{self.magBarLengthTaken}";
+    margin-bottom: 10px;
+    color:rgb(45, 105, 196);
+}
+#pure_bar_taken{
+    margin-left: 10px;
+    height: 20px;
+    width: "{self.pureBarLengthTaken}";
+    margin-bottom: 20px;
+    color: rgb(214, 171, 54);
+}
+
+#phy_bar_done{
+    margin-left: 10px;
+    height: 20px;
+    width: "{self.phBarLengthDone}";
+    color: rgb(190, 46, 65);
+}
+#mag_bar_done{
+    margin-left: 10px;
+    height: 20px;
+    width: "{self.magBarLengthDone}";
+    margin-bottom: 10px;
+    color:rgb(45, 105, 196);
+}
+#pure_bar_done{
+    margin-left: 10px;
+    height: 20px;
+    width: "{self.pureBarLengthDone}";
+    margin-bottom: 20px;
+    color: rgb(214, 171, 54);
+}
+
+#phy_dmg{
+    font-size: 18px;
+    display: flex;
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+#mag_dmg{
+    font-size: 18px;
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+#pure_dmg{
+    font-size: 18px;
+    display: flex;
+    margin-left: 15px;
+}
+
+
+#phy_title{
+    font-size: 20px;
+    color: rgb(145, 172, 180);
+}
+#mag_title{
+    font-size: 20px;
+    color: rgb(145, 172, 180);
+    margin-top: 10px;
+}
+
+#pure_title{
+    font-size: 20px;
+    color: rgb(145, 172, 180);
+    margin-top: 20px;
+}
+
+#aghs {
+    margin-left: 17px;
+    margin-top: 25px;
+    width: 50px;
+    height: 100px;
+}

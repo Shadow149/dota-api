@@ -7,12 +7,7 @@
         </Section>
 
         <Title id="playerTitle" text="{self.playerName}"/>
-
-
-        <!-- <RepeatSection>
-            <Title text="yest"/>
-        </RepeatSection> -->
-            
+                   
         <Section>
             <Title text="{self.hero}"/>
             <Title id="KDA" text="{self.kda}"/>
@@ -25,30 +20,12 @@
         </Section>
         
         <Section id="items">
-            <Section>
-                <Image src="{self.item_0}"/>
-                <!-- <Label id="item_time" text="31"/> -->
-            </Section>
-            <Section>
-                <Image src="{self.item_1}"/>
-                <!-- <Label id="item_time" text="3"/> -->
-            </Section>
-            <Section>
-                <Image src="{self.item_2}"/>
-                <!-- <Label id="item_time" text="25"/> -->
-            </Section>
-            <Section>
-                <Image src="{self.item_3}"/>
-                <!-- <Label id="item_time" text="5"/> -->
-            </Section>
-            <Section>
-                <Image src="{self.item_4}"/>
-                <!-- <Label id="item_time" text="10"/> -->
-            </Section>
-            <Section>
-                <Image src="{self.item_5}"/>
-                <!-- <Label id="item_time" text="13"/> -->
-            </Section>
+            <Image src="{self.item_0}"/>
+            <Image src="{self.item_1}"/>
+            <Image src="{self.item_2}"/>
+            <Image src="{self.item_3}"/>
+            <Image src="{self.item_4}"/>
+            <Image src="{self.item_5}"/>
         </Section>
 
         <Section id="info">

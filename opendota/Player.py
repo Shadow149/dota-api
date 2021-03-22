@@ -137,6 +137,9 @@ class Player:
     def get_damage_done(self):
         return self.handle_missing_value("hero_damage")
 
+    def get_damage_targets(self):
+        return self.handle_missing_value("damage_targets")
+    
     def get_damage_taken(self):
         return self.handle_missing_value("damage_taken")
 
@@ -196,5 +199,40 @@ class Player:
 
         return physical, magical, pure, unknown
 
+    def get_damage_done_types(self):
+        magical = 0
+        physical = 0
+        pure = 0
+        unknown = 0
+        abilityJson = None
+
+        with open("data/abilities.json") as dmg_file:
+            abilityJson = json.load(dmg_file)
+
+        damageTaken = self.get_damage_inflictor()
+        if damageTaken == VALUE_MISSING:
+            return VALUE_MISSING
+        for dmg in damageTaken:
+            if dmg in abilityJson:
+                ability = abilityJson[dmg]
+                if "dmg_type" in ability:
+                    dType = ability["dmg_type"]
+                    if dType == "Magical":
+                        magical += damageTaken[dmg]
+                    elif dType == "Pure":
+                        pure += damageTaken[dmg]
+                    else:
+                        physical += damageTaken[dmg]
+                else:
+                    print(dmg)
+                    unknown += damageTaken[dmg]
+            elif dmg == "null":
+                physical += damageTaken[dmg]
+            else:
+                print(dmg)
+                unknown += damageTaken[dmg]
+
+        return physical, magical, pure, unknown
+    
     def get_item_first_purchase_time(self):
         return self.handle_missing_value("first_purchase_time")

@@ -9,8 +9,8 @@ from HeroInfographicSimple import HeroInfographicSimple
 IMAGES = "https://cdn.cloudflare.steamstatic.com/"
 
 class HeroInfographic (XMLImage):
-    def __init__(self, width, height, xml_path, css_path, background_colour, constants, player):
-        super().__init__(width, height, xml_path, css_path, background_colour, constants)
+    def __init__(self, width, height, xml_path, css_path, background_colour, constants, player, debug):
+        super().__init__(width, height, xml_path, css_path, background_colour, constants, debug)
         self.player = player
         self.background_colour = background_colour
         self.constants = constants
@@ -161,8 +161,8 @@ if __name__ == "__main__":
     import sys
 
     od = OpenDota()
-    # match = od.get_match_from_file('test3.json')
-    match = od.get_match(5845488682)
+    match = od.get_match_from_file('test3.json')
+    # match = od.get_match(5845488682)
     players = match.get_players()
     
     consts = Constants()
@@ -170,7 +170,7 @@ if __name__ == "__main__":
     inf = HeroInfographic(int(sys.argv[1]),int(sys.argv[2]),
                           sys.argv[3], 
                           sys.argv[4], (32, 39, 50), consts,
-                          players[int(sys.argv[5])])
+                          players[int(sys.argv[5])], bool(int(sys.argv[6])))
 
     # inf = HeroInfographic(int(sys.argv[1]),int(sys.argv[2]),
     #                       sys.argv[3], 

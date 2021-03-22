@@ -1,0 +1,119 @@
+<root>
+    <Section>
+        <Section id="teamSection">
+            <Title id="team" text="{self.team}"/>
+            <Block id="win_background"/>
+            <Label id="win" text="{self.win}"/>
+        </Section>
+
+        
+        <Section>
+            <Title id="playerTitle" text="{self.playerName}"/>
+            <Section id="inline_section">
+                <Section>
+                    <Title text="{self.hero}"/>
+                    <Title id="KDA" text="{self.kda}"/>
+                </Section>
+                <Section id="hero_img">
+                    <Image src="{self.hero_url}"/>
+                </Section>
+            </Section>
+        </Section>
+        
+        <Title id="subtitle" text="Damage Taken"/>
+        <Section id="inline_section">
+            <Section id="dmg_taken">
+                <Section id="column">
+                    <RepeatedSection iterable="{self.damage_inflictor_taken[:10]}" element="spell">
+                        <Section id="inline_section">
+                            <Image id="ability" src="{self.spell[0]}"/>
+                            <Section id="dmg_text">
+                                <Label id="spell_dmg" text="{self.spell[1]}"/>
+                                <Label id="spell_dmg_percent" text="{self.spell[2]}%"/>
+                            </Section>
+                        </Section>
+                    </RepeatedSection>
+                </Section>
+                <Section id="column">
+                    <RepeatedSection iterable="{self.damage_inflictor_taken[10:]}" element="spell">
+                        <Section id="col1">
+                            <Image id="ability" src="{self.spell[0]}"/>
+                            <Section id="dmg_text">
+                                <Label id="spell_dmg" text="{self.spell[1]}"/>
+                                <Label id="spell_dmg_percent" text="{self.spell[2]}%"/>
+                            </Section>
+                        </Section>
+                    </RepeatedSection>
+                </Section>
+            </Section>
+            <Section id="barsection">
+                <Section id="dmg_breakdown">
+                    <Label text="Damage Taken"/>
+                    <Section id="bars">
+                        <Label id="phy_title" text="Physical"/>
+                        <Block id="phy_bar_taken"/>
+                        <Label id="phy_dmg" text="{self.physicalTaken}"/>
+                        
+                        <Label id="mag_title" text="Magical"/>
+                        <Block id="mag_bar_taken"/>
+                        <Label id="mag_dmg" text="{self.magicalTaken}"/>
+                        
+                        <Label id="pure_title" text="Pure"/>
+                        <Block id="pure_bar_taken"/>
+                        <Label id="pure_dmg" text="{self.pureTaken}"/>
+                    </Section>
+                </Section>
+
+                <Section id="dmg_breakdown_done">
+                    <Label text="Damage Done"/>
+                    <Section id="bars">
+                        <Label id="phy_title" text="Physical"/>
+                        <Block id="phy_bar_done"/>
+                        <Label id="phy_dmg" text="{self.physicalDone}"/>
+                        
+                        <Label id="mag_title" text="Magical"/>
+                        <Block id="mag_bar_done"/>
+                        <Label id="mag_dmg" text="{self.magicalDone}"/>
+                        
+                        <Label id="pure_title" text="Pure"/>
+                        <Block id="pure_bar_done"/>
+                        <Label id="pure_dmg" text="{self.pureDone}"/>
+                    </Section>
+                </Section>
+            </Section>
+        </Section>
+        
+        <Section id="dmg_done_section">
+            <Title id="subtitle" text="Damage Done"/>
+            <Section id="hero_header">
+                <Image id="hero_icon" src="{self.damage_grid[0][1]}"/>
+                <Image id="hero_icon" src="{self.damage_grid[0][2]}"/>
+                <Image id="hero_icon" src="{self.damage_grid[0][3]}"/>
+                <Image id="hero_icon" src="{self.damage_grid[0][4]}"/>
+                <Image id="hero_icon" src="{self.damage_grid[0][5]}"/>
+                <Label id="dmg_numbers" text="Total"/>
+            </Section>
+            <RepeatedSection id="dmg_grid" iterable="{self.damage_grid[1:-1]}" element="col">
+                <Section id="inline_section">
+                    <Image id="ability" src="{self.col[0]}"/>
+                    <Label id="dmg_numbers" text="{self.col[1]}"/>
+                    <Label id="dmg_numbers" text="{self.col[2]}"/>
+                    <Label id="dmg_numbers" text="{self.col[3]}"/>
+                    <Label id="dmg_numbers" text="{self.col[4]}"/>
+                    <Label id="dmg_numbers" text="{self.col[5]}"/>
+                    <Label id="dmg_numbers" text="{self.col[-1]}"/>
+                </Section>
+            </RepeatedSection>
+            <!-- <Block id="bottom_totals"/> -->
+            <Section id="totals">
+                <Label id="dmg_numbers" text="{self.damage_grid[-1][0]}"/>
+                <Label id="dmg_numbers" text="{self.damage_grid[-1][1]}"/>
+                <Label id="dmg_numbers" text="{self.damage_grid[-1][2]}"/>
+                <Label id="dmg_numbers" text="{self.damage_grid[-1][3]}"/>
+                <Label id="dmg_numbers" text="{self.damage_grid[-1][4]}"/>
+                <Label id="dmg_numbers" text="{self.damage_grid[-1][-1]}"/>
+            </Section>
+        </Section>
+
+    </Section>
+</root>
